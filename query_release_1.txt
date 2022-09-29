@@ -1,5 +1,5 @@
 Part 1 Release 1
--- SOAL KE 2
+-- 2
 CREATE TABLE IF NOT EXISTS "Categories" (
 	id SERIAL PRIMARY KEY,
 	name VARCHAR(50) NOT NULL
@@ -16,7 +16,7 @@ CREATE TABLE IF NOT EXISTS "Menus" (
 		REFERENCES "Categories" (id)
 );
 
--- SOAL KE 4
+-- 4
 INSERT INTO "Categories" (name) 
 VALUES ('Espresso'),
 	   ('Chocolate'),
@@ -53,7 +53,7 @@ VALUES('Double Shots', 1, 87, 48000, '2021-03-03'),
 ('Bakwan', 8, 45, 22000, '2021-03-03'),
 ('Risol', 8, 47, 25000, '2021-03-03');
 
--- SOAL KE 3
+-- 3
 INSERT INTO "Categories" (name)
 VALUES ('Food');
 
@@ -74,5 +74,5 @@ WHERE id = 24;
 DELETE FROM "Categories" 
 WHERE id = 9;
 
--- SOAL KE 5
+-- SOAL 5
 -- DROP TABLE "Menus" , "Categories" ;
