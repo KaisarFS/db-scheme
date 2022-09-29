@@ -4,14 +4,14 @@ SELECT * FROM "Menus" m
 JOIN "Categories" c 
 ON m."CategoryId"  = c.id;
 
--- SOAL R-2 : 2
+-- R-2 : 2
 SELECT m."name"  FROM "Categories" c  -- Bisa pake "Menu" m
 JOIN "Menus" m   -- Bsa pake Categories -c
 ON c.id = m."CategoryId" 
 WHERE c."name" = 'Tea';
 
 
--- SOAL R-2 : 3
+-- R-2 : 3
 SELECT 
 	max(m."name"),
 	c."name" 
@@ -26,28 +26,28 @@ WHERE
 GROUP BY 
 	c."name" ;
 
--- SOAL R-2 : 4
+-- R-2 : 4
 SELECT m.name, c."name", m.price FROM "Menus" m 
 JOIN "Categories" c 
 ON c.id  = m."CategoryId"
 ORDER BY m.price DESC 
 LIMIT 1;
 
--- SOAL R-2 : 5
+-- R-2 : 5
 SELECT c."name", AVG(m.price) FROM "Menus" m 
 JOIN "Categories" c 
 ON c.id  = m."CategoryId" 
 WHERE c."name" = 'Espresso'
 GROUP BY c.name ;
 
--- SOAL R-2 : 6
+-- R-2 : 6
 SELECT c."name", sum(m.stock) FROM "Menus" m 
 JOIN "Categories" c 
 ON c.id  = m."CategoryId" 
 WHERE c."name" = 'Tea'
 GROUP BY c.name ;
 
--- SOAL R-2 : 7
+-- R-2 : 7
 SELECT sum(m.stock), c.name FROM "Menus" m 
 JOIN "Categories" c
 ON c.id = m."CategoryId"
