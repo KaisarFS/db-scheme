@@ -1,0 +1,78 @@
+Part 1 Release 1
+-- SOAL KE 2
+CREATE TABLE IF NOT EXISTS "Categories" (
+	id SERIAL PRIMARY KEY,
+	name VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS "Menus" (
+	id SERIAL PRIMARY KEY,
+	name VARCHAR(50) NOT NULL,
+	stock INTEGER NOT NULL,
+	price INTEGER NOT NULL,
+	"createdAt" DATE NOT NULL,
+	"CategoryId" INTEGER,
+		FOREIGN KEY ("CategoryId")
+		REFERENCES "Categories" (id)
+);
+
+-- SOAL KE 4
+INSERT INTO "Categories" (name) 
+VALUES ('Espresso'),
+	   ('Chocolate'),
+	   ('Coffe'),
+	   ('Tea'),
+	   ('Cream'),
+	   ('Juice'),
+	   ('Toast'),
+	   ('Other');
+	   
+
+INSERT INTO "Menus" (name, "CategoryId", stock, price, "createdAt")
+VALUES('Double Shots', 1, 87, 48000, '2021-03-03'),
+('Americano', 1, 86, 34000, '2021-08-03'),
+('Caramel Macchiato', 1, 78, 57000, '2021-08-03'),
+('Cappucino', 1, 56, 44000, '2021-08-03'),
+('Hot Chocolate', 2, 67, 5000, '2021-03-03'),
+('Coffe', 3, 95, 39000, '2021-03-03'),
+('Caramel Java Chip', 3, 75, 53000, '2021-03-03'),
+('Mocha', 3, 75, 48000, '2021-06-03'),
+('Asian Dolce', 3, 73, 48000, '2021-06-03'),
+('Lemon Tea', 4, 67, 22000, '2021-03-03'),
+('Green Tea', 4, 46, 22000, '2021-03-03'),
+('Vanilla Cream', 5, 57, 46000, '2021-03-03'),
+('Chocolate Chip Cream', 5, 56, 53000, '2021-03-03'),
+('Green Tea Cream', 5, 68, 53000, '2021-07-03'),
+('Mango Juice', 6, 67, 39000, '2021-07-03'),
+('Guava Juice', 6, 85,	 39000, '2021-07-03'),
+('Strawberry Juice', 6, 34, 39000, '2021-07-03'),
+('Crispy Chicken Toast', 7, 53, 32000, '2021-03-03'),
+('Spicy Bulgogi Toast', 7, 34, 32000, '2021-03-03'),
+('Egg and Cheese Toast', 7, 53, 22000, '2021-03-03'),
+('Cireng', 8, 44, 22000, '2021-03-03'),
+('Bakwan', 8, 45, 22000, '2021-03-03'),
+('Risol', 8, 47, 25000, '2021-03-03');
+
+-- SOAL KE 3
+INSERT INTO "Categories" (name)
+VALUES ('Food');
+
+INSERT INTO "Menus" (name, "CategoryId", stock, price, "createdAt")
+VALUES ('Babi Panggang Karo', 9, 15, 30000, '2022-03-10');
+
+UPDATE "Categories"
+SET name = 'Delicous Food'
+WHERE name = 'Food';
+
+UPDATE "Menus" 
+SET name = 'Babi Panggang Sampit'
+WHERE name = 'Babi Panggang Karo';
+
+DELETE FROM "Menus"  
+WHERE id = 24;
+
+DELETE FROM "Categories" 
+WHERE id = 9;
+
+-- SOAL KE 5
+-- DROP TABLE "Menus" , "Categories" ;
